@@ -1,0 +1,140 @@
+@font-face {
+  font-family: garamond;
+  src: url("../assets/fonts/apple_garamond/AppleGaramond.ttf");
+}
+
+@mixin mediumDevice {
+  @media screen and (max-width: 1000px) {
+    @content;
+  }
+}
+
+.apple-menubar {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  padding: 1rem;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+
+  .logo {
+    flex: 1;
+    display: flex;
+    justify-content: start;
+    align-items: center;
+    font-size: 3rem;
+    font-family: garamond;
+    color: rgba(0, 0, 0, 0.816);
+    text-shadow: 0 1px 0 white;
+  }
+  .login.regularScreen {
+    @include mediumDevice {
+      display: none;
+    }
+  }
+  .login.smallDevice {
+    display: none;
+    @include mediumDevice {
+      display: flex;
+    }
+  }
+  .buttons {
+    flex: 1;
+    display: flex;
+    justify-content: end;
+    align-items: center;
+    gap: 1rem;
+    font-family: "San Francisco", "Lucida Grande", Arial, sans-serif;
+
+    > * {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 40px;
+      background-color: pink;
+      border-radius: 1rem;
+      padding-inline: 1.5rem;
+      background: linear-gradient(
+        white,
+        lightgray 50%,
+        rgb(181, 181, 181) 50%,
+        lightgray,
+        whitesmoke
+      );
+      border: 1px solid rgba(0, 0, 0, 0.2);
+      font-weight: 600;
+      font-size: 0.9rem;
+      text-shadow: 0 -1px 0 white;
+    }
+  }
+}
+
+.page-links {
+  // margin: 2rem;
+  width: 700px;
+  // max-width: calc(100vw - 1rem);
+  height: 40px;
+  background: linear-gradient(
+    to bottom,
+    #848484da,
+    #5e5e5ed5 50%,
+    #434343d1 50%,
+    #777777d5
+  );
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.15);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-family: "San Francisco", "Lucida Grande", Arial, sans-serif;
+  font-size: 15px;
+  user-select: none;
+  z-index: 100;
+  position: relative;
+  border-radius: 1rem;
+  overflow: hidden;
+  @include mediumDevice {
+    justify-content: start;
+    overflow: auto;
+  }
+}
+
+.page-links .apple-logo {
+  font-size: 18px;
+  font-weight: bold;
+  margin-right: 1.5rem;
+  color: white;
+  letter-spacing: 0.1em;
+}
+
+.page-links a {
+  color: #222;
+  border-right: 1px solid rgba(0, 0, 0, 0.473);
+  text-decoration: none;
+  height: 100%;
+  padding: 0 1rem;
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  //   border-radius: 4px;
+  transition: background 0.15s, color 0.15s;
+  color: white;
+  text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.661);
+  box-shadow: inset 0 2px 4px rgba(255, 255, 255, 0.2);
+}
+
+.page-links a:hover,
+.page-links a.active {
+  background: linear-gradient(
+    to bottom,
+    #848484da,
+    #5e5e5ed5 50%,
+    #434343d1 50%,
+    #777777d5
+  );
+}
+
+.page-links a:active {
+  box-shadow: inset 0 0 0.6rem rgba(0, 0, 0, 0.332);
+}
