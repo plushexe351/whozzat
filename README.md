@@ -1,13 +1,25 @@
-# React + Vite
+# Whozzat
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A skewmorphic, old school UI/UX app for all your links in one place.
 
-Currently, two official plugins are available:
+## 📋 Feature TODO List 
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+| Feature                         | Status          | Notes                                      |
+|---------------------------------|------------------|--------------------------------------------|
+| ✅ Landing Page UI              | Completed        | Polished and responsive                    |
+| 🟡 Authentication UI            | Partly Complete  | Basic login/register done, improvements pending |
+| ☐ Profile Customization Page    | To Do            | Add bio, profile pic, background, etc.     |
+| ☐ Add / Remove Links UI         | To Do            | User can manage their personal links       |
+| ☐ Link Analytics Dashboard      | To Do            | Clicks, impressions, device info, etc.     |
+| ☐ Public Profile Page           | To Do            | Live profile with custom URL               |
+| ☐ Themes / Appearance Options   | To Do            | Colors, fonts, button shapes               |
+| ☐ Social Login (Google, etc.)   | To Do            | OAuth integration                          |
+| ☐ Admin Dashboard               | To Do            | User management, reported content review   |
+| ☐ Responsive Design Pass        | To Do            | Ensure mobile and tablet compatibility     |
+| ☐ SEO & Open Graph Meta Tags    | To Do            | For sharing profile links on social media  |
+| ☐ Deployment                    | To Do            | Host on Vercel, Netlify, or custom server  |
 
-## Expanding the ESLint configuration
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
-# whozzat
+## 🌐 Live Preview
+
+[Click here to view the live app](https://whozzat.vercel.app)
