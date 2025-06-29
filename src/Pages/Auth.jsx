@@ -152,14 +152,6 @@ const Auth = () => {
               >
                 {loading ? "Creating..." : "Create Account"}
               </button>
-              <button
-                type="button"
-                className="signUp"
-                style={{ marginTop: 8 }}
-                onClick={() => setShowSignUp(false)}
-              >
-                Already have an account? Sign in
-              </button>
             </form>
           ) : (
             <form
@@ -198,14 +190,6 @@ const Auth = () => {
               <button className="createAccount" type="submit">
                 {loading ? "Signing in..." : "Sign in with Email"}
               </button>
-              <button
-                type="button"
-                className="signUp"
-                style={{ marginTop: 8 }}
-                onClick={() => setShowSignUp(true)}
-              >
-                Don't have an account? Sign up
-              </button>
             </form>
           )}
 
@@ -214,6 +198,25 @@ const Auth = () => {
             <a href="">Privacy Policy</a> including <a href="">Cookie use</a>.
           </div>
           <div className="line-break"></div>
+          {showSignUp ? (
+            <button
+              type="button"
+              className="signUp"
+              style={{ marginTop: 8 }}
+              onClick={() => setShowSignUp(false)}
+            >
+              Already have an account? Sign in
+            </button>
+          ) : (
+            <button
+              type="button"
+              className="signUp"
+              style={{ marginTop: 8 }}
+              onClick={() => setShowSignUp(true)}
+            >
+              Don't have an account? Sign up
+            </button>
+          )}
         </div>
       </motion.div>
     </div>
