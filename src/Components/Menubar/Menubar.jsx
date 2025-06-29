@@ -48,10 +48,13 @@ const Menubar = () => {
     <nav className={`apple-menubar${showFixed ? " fixed-menubar" : ""}`}>
       <div className="logo" onClick={() => console.log(user)}>
         Whozzat!
-        <div className="buttons">
-          <Link className="login smallDevice" to="/auth">
-            {user ? "Log out" : "Log in"}
-          </Link>
+        <div className="buttons smallScreen">
+          {user && <p onClick={() => handleSignOut(addToast)}>Log out</p>}
+          {!user && (
+            <Link className="login" to="/auth">
+              Log in
+            </Link>
+          )}
         </div>
       </div>
       <div className="page-links">
@@ -68,14 +71,13 @@ const Menubar = () => {
           ))}
         </>
       </div>
-      <div className="buttons">
+      <div className="buttons regularScreen">
         {user && <p onClick={() => handleSignOut(addToast)}>Log out</p>}
         {!user && (
-          <Link className="login regularScreen" to="/auth">
-            {user ? "Log out" : "Log in"}
+          <Link className="login" to="/auth">
+            Log in
           </Link>
         )}
-        {/* <button className="signup">Sign up free</button> */}
       </div>
     </nav>
   );

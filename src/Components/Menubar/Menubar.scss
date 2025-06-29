@@ -30,12 +30,13 @@
     color: rgba(0, 0, 0, 0.816);
     text-shadow: 0 1px 0 white;
   }
-  .login.regularScreen {
+  .buttons.regularScreen {
     @include mediumDevice {
       display: none;
     }
   }
-  .login.smallDevice {
+
+  .buttons.smallScreen {
     display: none;
     @include mediumDevice {
       display: flex;
