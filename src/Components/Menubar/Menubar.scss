@@ -50,6 +50,7 @@
     font-family: "San Francisco", "Lucida Grande", Arial, sans-serif;
 
     > * {
+      cursor: pointer;
       display: flex;
       justify-content: center;
       align-items: center;
@@ -169,8 +170,8 @@
   background: linear-gradient(
     to bottom,
     #848484da,
-    #5e5e5ed5 50%,
-    #434343d1 50%,
+    #414141d5 50%,
+    #272727d1 50%,
     #777777d5
   );
 }

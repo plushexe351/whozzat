@@ -92,8 +92,8 @@ const Landing = () => {
           </button>
         </div>
         <div className="hero-visual">
-          <div class="gradient-overlay"></div>
-          <div class="dashboard">
+          <div className="gradient-overlay"></div>
+          <div className="dashboard">
             <button
               className="frutiger-button clickthrough"
               onClick={() => addToast("Get started!")}

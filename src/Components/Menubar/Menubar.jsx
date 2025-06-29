@@ -1,6 +1,10 @@
 import React, { useEffect, useState } from "react";
 import "./Menubar.scss";
 import { Link, useLocation } from "react-router";
+import { useAuth } from "../../Context/AuthContext";
+import { p } from "framer-motion/client";
+import { handleSignOut } from "../../utils/authHandlers.js";
+import { useToast } from "../../Context/ToastContext.jsx";
 
 const menuItems = [
   { name: "About", path: "/landing" },
@@ -11,9 +15,11 @@ const menuItems = [
 ];
 
 const Menubar = () => {
+  const { user } = useAuth();
   const location = useLocation();
   const [showFixed, setShowFixed] = useState(false);
   const [lastScrollY, setLastScrollY] = useState(window.scrollY);
+  const { addToast } = useToast();
 
   useEffect(() => {
     let ticking = false;
@@ -40,11 +46,11 @@ const Menubar = () => {
 
   return (
     <nav className={`apple-menubar${showFixed ? " fixed-menubar" : ""}`}>
-      <div className="logo">
+      <div className="logo" onClick={() => console.log(user)}>
         Whozzat!
         <div className="buttons">
           <Link className="login smallDevice" to="/auth">
-            Log in
+            {user ? "Log out" : "Log in"}
           </Link>
         </div>
       </div>
@@ -63,9 +69,12 @@ const Menubar = () => {
         </>
       </div>
       <div className="buttons">
-        <Link className="login regularScreen" to="/auth">
-          Log in
-        </Link>
+        {user && <p onClick={() => handleSignOut(addToast)}>Log out</p>}
+        {!user && (
+          <Link className="login regularScreen" to="/auth">
+            {user ? "Log out" : "Log in"}
+          </Link>
+        )}
         {/* <button className="signup">Sign up free</button> */}
       </div>
     </nav>

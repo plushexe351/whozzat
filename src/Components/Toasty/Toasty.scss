@@ -26,13 +26,5 @@
     backdrop-filter: blur(1.5rem);
     color: white;
     text-shadow: 0 1px 0 black;
-    &.success {
-      background: linear-gradient(
-        lightgreen,
-        green 50%,
-        darkgreen 50%,
-        rgb(93, 156, 93)
-      );
-    }
   }
 }
