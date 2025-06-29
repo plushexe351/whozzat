@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { motion } from "framer-motion";
+import { motion, useUnmountEffect } from "framer-motion";
 import { useNavigate } from "react-router";
 import "./styles/Auth.scss";
 import {
@@ -11,6 +11,7 @@ import {
 import { p } from "framer-motion/client";
 import { Check, Image, Plus, Upload, UploadCloud } from "lucide-react";
 import { useToast } from "../Context/ToastContext.jsx";
+import { useAuth } from "../Context/AuthContext.jsx";
 
 const Auth = () => {
   const [email, setEmail] = useState("");
@@ -21,9 +22,10 @@ const Auth = () => {
   const [profilePreview, setProfilePreview] = useState(null);
   const [loading, setLoading] = useState(false);
   const [username, setUsername] = useState("");
-  const [user, setUser] = useState(null);
+  // const [userLocal, setUserLocal] = useState(null);
   const navigate = useNavigate();
   const { addToast } = useToast();
+  const { user, setUser } = useAuth();
 
   return (
     <div className="Auth" style={{ perspective: "400px" }}>

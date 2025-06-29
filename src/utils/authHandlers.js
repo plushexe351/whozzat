@@ -30,7 +30,7 @@ export const handleGoogleSignIn = async (
     setLoading(true);
     const result = await signInWithPopup(auth, googleProvider);
     const { displayName, email, photoURL, uid } = result.user;
-    setUser({ displayName, email, profileURL: photoURL, uid });
+    // setUser({ displayName, email, profileURL: photoURL, uid });
     addToast(`Welcome, ${displayName}!`, "success");
     navigate("/home");
   } catch (err) {
@@ -67,13 +67,14 @@ export const handleEmailSignIn = async (
       displayName = data.username || "";
       profileURL = data.profileURL || "";
     }
-    setUser({ displayName, email: userEmail, profileURL, uid });
+    // setUser({ displayName, email: userEmail, profileURL, uid });
     addToast(`Welcome, ${displayName}!`, "success");
 
     navigate("/home");
   } catch (err) {
     setError(err.message);
     addToast("Error Signing in with email and password", "error");
+    console.log(err);
   } finally {
     setLoading(false);
   }
@@ -100,6 +101,7 @@ export const handleSignUp = async (
       email,
       password
     );
+
     let photoURL = null;
     if (profileImage) {
       const imageRef = ref(storage, `profileImages/${userCredential.user.uid}`);
@@ -116,24 +118,34 @@ export const handleSignUp = async (
       username,
       createdAt: new Date().toISOString(),
     });
+
+    // Fetch the updated user from Firebase Auth (to get displayName and photoURL)
+    await userCredential.user.reload();
+    const refreshedUser = userCredential.user;
+
     setUser({
-      displayName: username,
-      email,
-      profileURL: photoURL,
-      uid: userCredential.user.uid,
+      displayName: refreshedUser.displayName || username,
+      email: refreshedUser.email,
+      profileURL: refreshedUser.photoURL || photoURL,
+      uid: refreshedUser.uid,
     });
-    addToast(`Welcome, ${displayName}!`, "success");
+
+    addToast(
+      `Welcome ${refreshedUser.displayName || username || ""}!`,
+      "success"
+    );
 
     navigate("/home");
   } catch (err) {
     setError(err.message);
     addToast("Error Signing Up", "error");
+    console.log(err.message);
   } finally {
     setLoading(false);
   }
 };
 
-// Image Change
+// Image ChangeW
 export const handleImageChange = (e, setProfileImage, setProfilePreview) => {
   const file = e.target.files[0];
   if (file) {
