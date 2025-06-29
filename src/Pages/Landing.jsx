@@ -8,6 +8,9 @@ import github from "../assets/github.png";
 import youtube from "../assets/youtube.png";
 import tiktok from "../assets/tiktok.png";
 import spotify from "../assets/spotify.png";
+import iphone1 from "../assets/iphone-skew.png";
+import iphone2 from "../assets/iphone-modern.png";
+import showcase_visual from "../assets/showcase-visual.png";
 import {
   DollarSign,
   Globe2,
@@ -15,6 +18,7 @@ import {
   HeadphonesIcon,
   LineChart,
 } from "lucide-react";
+import FooterFAQ from "../Components/FooterFAQ/FooterFAQ";
 
 const Landing = () => {
   const { addToast } = useToast();
@@ -50,71 +54,7 @@ const Landing = () => {
       </motion.section>
       <section className="hero showcase">
         <div className="hero-visual social-cards-row">
-          <div className="d3-btn spotify">
-            <button
-              className="frutiger-button"
-              onClick={() => addToast("Get started!")}
-            >
-              <div className="inner">
-                <div className=""></div>
-                <span className="text">
-                  <img src={spotify} alt="" />
-                </span>
-              </div>
-            </button>
-          </div>
-          <div className="d3-btn instagram">
-            <button
-              className="frutiger-button"
-              onClick={() => addToast("Get started!")}
-            >
-              <div className="inner">
-                <div className=""></div>
-                <span className="text">
-                  <img src={insta} alt="" />
-                </span>
-              </div>
-            </button>
-          </div>
-          <div className="d3-btn tiktok">
-            <button
-              className="frutiger-button"
-              onClick={() => addToast("Get started!")}
-            >
-              <div className="inner tiktok">
-                <div className=""></div>
-                <span className="text">
-                  <img src={tiktok} alt="" />
-                </span>
-              </div>
-            </button>
-          </div>
-          <div className="d3-btn youtube">
-            <button
-              className="frutiger-button"
-              onClick={() => addToast("Get started!")}
-            >
-              <div className="inner youtube">
-                <div className=""></div>
-                <span className="text">
-                  <img src={youtube} alt="" />
-                </span>
-              </div>
-            </button>
-          </div>
-          <div className="d3-btn github">
-            <button
-              className="frutiger-button"
-              onClick={() => addToast("Get started!")}
-            >
-              <div className="inner youtube">
-                <div className=""></div>
-                <span className="text">
-                  <img src={github} alt="" />
-                </span>
-              </div>
-            </button>
-          </div>
+          <img src={showcase_visual} alt="" />
         </div>
         <div className="hero-text">
           <h2 className="title">Showcase Your Best Work</h2>
@@ -154,34 +94,6 @@ const Landing = () => {
         <div className="hero-visual">
           <div class="gradient-overlay"></div>
           <div class="dashboard">
-            {/* <div class="card clickthrough">
-              <div class="chart"></div>
-              <div class="value">43,500</div>
-              <div class="label">Clickthrough rate</div>
-            </div>
-
-            <div class="card track-plays">
-              <div class="icon">
-                <HeadphonesIcon size={40} className="icon" />
-              </div>
-              <div class="value">643</div>
-              <div class="label">Track Plays</div>
-            </div>
-
-            <div class="card sales">
-              <div class="icon">
-                <DollarSign size={40} className="icon" />
-              </div>
-              <div class="value">$2,362</div>
-              <div class="label">Sales</div>
-            </div>
-
-            <div class="card visits">
-              <div class="globe">🌍</div>
-              <div class="location">New York, USA</div>
-              <div class="value">960</div>
-              <div class="label">Visits</div>
-            </div> */}
             <button
               className="frutiger-button clickthrough"
               onClick={() => addToast("Get started!")}
@@ -230,7 +142,12 @@ const Landing = () => {
         </div>
       </section>
       <section className="hero personalize">
-        <div className="hero-visual"></div>
+        <div className="hero-visual">
+          <div className="mockups">
+            <img src={iphone1} className="iphone1" alt="" />
+            <img src={iphone2} className="iphone2" alt="" />
+          </div>
+        </div>
         <div className="hero-text">
           <h2 className="title">Personalize Your Page</h2>
           <p className="description">
@@ -247,6 +164,69 @@ const Landing = () => {
               <span className="text">Get Started</span>
             </div>
           </button>
+        </div>
+      </section>
+      <section className="faq">
+        <FooterFAQ />
+      </section>
+      <section className="footer">
+        <div className="footer-content w-full max-w-5xl mx-auto flex flex-col md:flex-row md:justify-between md:items-start gap-8 py-12 px-4 md:px-8 text-white">
+          <div className="footer-brand flex-1 flex flex-col gap-2">
+            <span className="footer-logo text-3xl font-bold tracking-wide mb-2 text-pink-200">
+              Whozzat!
+            </span>
+            <p className="footer-desc text-base text-gray-200 max-w-md">
+              All your links, content, and socials in one beautiful bio page.
+              Grow your audience, showcase your best work, and stay in control
+              of your brand.
+            </p>
+          </div>
+          <div className="footer-links flex-1 flex flex-col gap-2">
+            <nav className="footer-page-links flex flex-col md:flex-row gap-2 md:gap-4 text-sm font-medium">
+              <a
+                href="/landing"
+                className="hover:underline hover:text-pink-200"
+              >
+                About
+              </a>
+              <a href="/home" className="hover:underline hover:text-pink-200">
+                Home
+              </a>
+              <a
+                href="/profile"
+                className="hover:underline hover:text-pink-200"
+              >
+                Profile
+              </a>
+              <a
+                href="/bookmarks"
+                className="hover:underline hover:text-pink-200"
+              >
+                Bookmarks
+              </a>
+              <a
+                href="/analytics"
+                className="hover:underline hover:text-pink-200"
+              >
+                Analytics
+              </a>
+            </nav>
+          </div>
+        </div>
+        <div className="footer-legal w-full max-w-5xl mx-auto flex flex-col md:flex-row items-center justify-between gap-2 px-4 md:px-8 pb-6 text-gray-300 text-xs border-t border-gray-700">
+          <div className="footer-legal-links flex gap-2 md:gap-4 py-2">
+            <a href="" className="footer-privacy hover:underline">
+              Privacy Policy
+            </a>
+            <span className="footer-legal-sep">|</span>
+            <a href="" className="footer-terms hover:underline">
+              Terms of Service
+            </a>
+          </div>
+          <div className="footer-copy py-2 text-center md:text-right">
+            &copy; {new Date().getFullYear()} Whozzat! &mdash; All rights
+            reserved.
+          </div>
         </div>
       </section>
     </motion.div>
