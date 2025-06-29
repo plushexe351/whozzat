@@ -27,7 +27,7 @@ const Menubar = () => {
       if (!ticking) {
         window.requestAnimationFrame(() => {
           const currentScrollY = window.scrollY;
-          if (currentScrollY <= 50) {
+          if (currentScrollY <= 50 || currentScrollY == 100) {
             setShowFixed(false);
           } else if (currentScrollY < lastScrollY) {
             setShowFixed(true);
